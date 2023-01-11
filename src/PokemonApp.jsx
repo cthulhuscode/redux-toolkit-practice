@@ -4,8 +4,8 @@ import { getPokemons } from "./store/slices/pokemon";
 
 export const PokemonApp = () => {
 
-  const { isLoading, pokemons, page } = useSelector(state => state.pokemons);
   const dispatch = useDispatch();
+  const { isLoading, pokemons = [], page } = useSelector(state => state.pokemons);
 
   useEffect(() => {
     dispatch(getPokemons());
@@ -18,12 +18,12 @@ export const PokemonApp = () => {
       <p>{isLoading && "Loading..."}</p>
 
       <ul className="pokemon-list">
-        {pokemons.map(pokemon => <li>{pokemon.name}</li>)}
+        {pokemons.map(pokemon => <li key={pokemon.name} >{pokemon.name}</li>)}
       </ul>
 
       <button
-        // disabled={isLoading}
-      // onClick={dispatch(getPokemons(page))}      
+        disabled={isLoading}
+        onClick={() => dispatch(getPokemons(page))} 
       >Next</button>
     </div>
   )
