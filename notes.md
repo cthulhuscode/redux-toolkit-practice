@@ -27,3 +27,9 @@ No necesariamente todo debe de estar en el Store. Algunos componetes necesitan u
 **@@INIT**: indica que ese es el punto de inicialización del store.
 
 **Thunks**: una acción asíncrona que dispara otra acción cuando se resuelve la petición asíncrona.
+
+**RTK Query**
+
+Es una pieza integrada nativamente con Redux Toolkit, sirve para hacer peticiones HTTP y hacer caching de la información.
+
+No es un reemplado de _axios_ o _fetch_
